@@ -10,5 +10,8 @@ dependencies = [
   "playwright",
 ]
 
+[project.optional-dependencies]
+test = ["pytest"]
+
 [tool.setuptools.packages.find]
 include = ["app*"]
