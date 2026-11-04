@@ -1,15 +1,3 @@
-"""Line diff between two snapshots, for the between-two-dates answer."""
+"""Backward-compatible wrapper for app.diff."""
 
-import difflib
-
-
-def diff_texts(old: str, new: str) -> list:
-    return list(
-        difflib.unified_diff(
-            old.splitlines(),
-            new.splitlines(),
-            fromfile="before",
-            tofile="after",
-            lineterm="",
-        )
-    )
+from app.diff import diff_texts  # noqa: F401,F403

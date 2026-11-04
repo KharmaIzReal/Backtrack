@@ -1,0 +1,15 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Local runtime data
+*.db
+time_machine.db
+data/screenshots/
+
+# Editor and OS noise
+.DS_Store
