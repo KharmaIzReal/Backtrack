@@ -1,0 +1,27 @@
+[
+  {
+    "check_every_minutes": 60,
+    "id": "saas-pricing",
+    "label": "SaaS pricing page",
+    "url": "https://stripe.com/pricing",
+    "hash_scope": "price_lines"
+  },
+  {
+    "check_every_minutes": 60,
+    "id": "privacy-policy",
+    "label": "Google Privacy Policy",
+    "url": "https://policies.google.com/privacy"
+  },
+  {
+    "check_every_minutes": 60,
+    "id": "terms",
+    "label": "Google Terms of Service",
+    "url": "https://policies.google.com/terms"
+  },
+  {
+    "check_every_minutes": 60,
+    "id": "amazon-goldbox",
+    "label": "Amazon Today's Deals",
+    "url": "https://www.amazon.com/gp/goldbox"
+  }
+]

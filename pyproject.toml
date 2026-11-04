@@ -1,0 +1,17 @@
+[project]
+name = "backtrack"
+version = "0.1.0"
+description = "Time Machine for tracking page changes over time"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "httpx",
+  "playwright",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
