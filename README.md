@@ -40,7 +40,7 @@ python3 -m venv .venv
 ## Demo
 
 ```bash
-.venv/bin/python scripts/demo_seed.py
+.venv/bin/python demo_seed.py
 .venv/bin/uvicorn app.main:app --reload
 ```
 
