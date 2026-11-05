@@ -126,9 +126,24 @@ def scoped_text(page: dict, text: str) -> str:
     return text
 
 
+BLOCK_MARKERS = ("Access restricted", "unauthorized AI agent")
+
+
+def is_block_page(text: str) -> bool:
+    """True when the fetch returned an access-block page, not the real page.
+    Amazon serves this instead of Today's Deals when it refuses automated
+    access. Saving it would record a fake "change" and poison /at and /diff
+    for that page, so block pages are skipped, never saved.
+    """
+    return any(marker in text for marker in BLOCK_MARKERS)
+
+
 def check_page(page: dict) -> bool:
     """Fetch one page; save a snapshot only if the text actually changed."""
     text = fetch_text(page["url"])
+    if is_block_page(text):
+        print(f"blocked: {page['id']} (access-block page, not saved)")
+        return False
     digest = hashlib.sha256(scoped_text(page, text).encode()).hexdigest()
     last = latest_snapshot(page["id"])
     last_digest = (
@@ -178,3 +193,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
