@@ -1,3 +1,4 @@
+
 """Seed a before/after demo: two versions of the pricing page on two dates.
 
 Run:  python demo_seed.py
@@ -6,6 +7,13 @@ Then:  GET /pages/saas-pricing/at?date=2026-11-01   -> old price
 """
 
 import hashlib
+import sys
+from pathlib import Path
+
+# Allow running as `python scripts/demo_seed.py` as well as
+# `python -m scripts.demo_seed`: the repo root (parent of scripts/)
+# must be on sys.path for `app` to import.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.store import save_snapshot
 
